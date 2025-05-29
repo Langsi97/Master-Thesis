@@ -1,9 +1,6 @@
 Model,Best Parameters,Accuracy,Precision,Recall,F1 Score
-Logistic Regression,"{'model__C': 0.1, 'model__l1_ratio': 0.7, 'model__penalty': 'elasticnet'}",0.5209003215434084,0.44698863855947224,0.5209003215434084,0.4526320726104119
-Decision Tree,"{'model__max_depth': 5, 'model__min_samples_split': 10}",0.47266881028938906,0.45986889500793365,0.47266881028938906,0.4639075995697311
-Random Forest,"{'model__max_depth': None, 'model__min_samples_split': 10, 'model__n_estimators': 50}",0.5337620578778135,0.5097319097649241,0.5337620578778135,0.4817068312418701
-Support Vector Machine,"{'model__C': 1, 'model__kernel': 'rbf'}",0.5209003215434084,0.4409466514538602,0.5209003215434084,0.4501685629619363
-XGBoost,"{'model__learning_rate': 0.01, 'model__max_depth': 3, 'model__n_estimators': 50}",0.5112540192926045,0.44360435412082894,0.5112540192926045,0.44482034191523456
-K-Nearest Neighbors,"{'model__n_neighbors': 10, 'model__weights': 'distance'}",0.4983922829581994,0.4659071393396152,0.4983922829581994,0.4675475865208492
-Naive Bayes,{},0.4694533762057878,0.45405345663793756,0.4694533762057878,0.4406751649295931
-Neural Network,"{'model__activation': 'relu', 'model__alpha': 0.0001, 'model__hidden_layer_sizes': (50,), 'model__learning_rate_init': 0.001, 'model__solver': 'sgd'}",0.4758842443729904,0.4456888769256926,0.4758842443729904,0.4442169136055815
+Logistic Regression,"{'model__C': 0.1, 'model__l1_ratio': 0.7, 'model__penalty': 'elasticnet'}",0.5313807531380753,0.39719860988420985,0.5313807531380753,0.45089031255787526
+Random Forest,"{'model__max_depth': 10, 'model__min_samples_split': 10, 'model__n_estimators': 200}",0.5188284518828452,0.650413316434181,0.5188284518828452,0.44406577109671747
+Support Vector Machine,"{'model__C': 10, 'model__kernel': 'linear'}",0.5230125523012552,0.5325419438039737,0.5230125523012552,0.45184020960368665
+XGBoost,"{'model__learning_rate': 0.01, 'model__max_depth': 3, 'model__n_estimators': 150}",0.5271966527196653,0.60386733243862,0.5271966527196653,0.4685966288293684
+Naive Bayes,{},0.4895397489539749,0.49188867700966415,0.4895397489539749,0.45403338772360025
