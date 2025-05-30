@@ -1,6 +1,0 @@
-Model,Best Parameters,Accuracy,Precision,Recall,F1 Score
-Logistic Regression,"{'model__C': 0.1, 'model__l1_ratio': 0.7, 'model__penalty': 'elasticnet'}",0.5313807531380753,0.39719860988420985,0.5313807531380753,0.45089031255787526
-Random Forest,"{'model__max_depth': 10, 'model__min_samples_split': 10, 'model__n_estimators': 200}",0.5188284518828452,0.650413316434181,0.5188284518828452,0.44406577109671747
-Support Vector Machine,"{'model__C': 10, 'model__kernel': 'linear'}",0.5230125523012552,0.5325419438039737,0.5230125523012552,0.45184020960368665
-XGBoost,"{'model__learning_rate': 0.01, 'model__max_depth': 3, 'model__n_estimators': 150}",0.5271966527196653,0.60386733243862,0.5271966527196653,0.4685966288293684
-Naive Bayes,{},0.4895397489539749,0.49188867700966415,0.4895397489539749,0.45403338772360025
