@@ -8,7 +8,7 @@ This repository contains the complete research code and analysis for my Master's
 
 **"Machine Learning in Football Match Prediction: A Case Study of the Belgian Jupiler Pro League"**
 
-The goal of this project is to investigate the use of machine learning algorithms in predicting the outcomes of football matches — specifically, Home Win, Draw, or Away Win — and to explore the implications of betting odds, potential market inefficiencies, and odds manipulations. The project aims to raise awareness about the risks associated with sports betting and demonstrate that "the house always wins".
+The goal of this project is to investigate the use of machine learning algorithms in predicting the outcomes of football matches, specifically, Home Win, Draw, or Away Win  and to explore the implications of betting odds, potential market inefficiencies, and odds manipulations. The project aims to raise awareness about the risks associated with sports betting and demonstrate that "the house always wins".
 
 ## 🎯 Objectives
 
