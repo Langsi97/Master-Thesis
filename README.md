@@ -43,22 +43,29 @@ A reproducible prediction and market-analysis pipeline:
 
 ## 📊 Key Results
 
-> Exact per-model figures are in Chapter [X] of the thesis PDF in this repository. Replace the bracketed values below with the final numbers.
+**Model performance on the held-out test set** (best value per metric in bold)
 
-| Model | Accuracy | Weighted F1 | ROC AUC | Log loss |
-|---|---|---|---|---|
-| **Random Forest** (selected) | [0.xx] | [0.xx] | [0.xx] | [x.xx] |
-| XGBoost | [0.xx] | [0.xx] | [0.xx] | [x.xx] |
-| Logistic Regression | [0.xx] | [0.xx] | [0.xx] | [x.xx] |
-| Support Vector Machine | [0.xx] | [0.xx] | [0.xx] | [x.xx] |
-| Naive Bayes | [0.xx] | [0.xx] | [0.xx] | [x.xx] |
+| Metric | Logistic Regression | **Random Forest** | SVM | XGBoost | Naive Bayes |
+|---|---|---|---|---|---|
+| Accuracy | 0.515 | **0.540** | 0.452 | 0.485 | 0.510 |
+| Balanced accuracy | **0.502** | 0.501 | 0.437 | 0.465 | **0.502** |
+| Precision (weighted) | 0.529 | **0.541** | 0.450 | 0.479 | 0.524 |
+| Recall (weighted) | 0.515 | **0.540** | 0.452 | 0.485 | 0.510 |
+| F1 score (weighted) | 0.497 | 0.493 | 0.448 | 0.476 | **0.500** |
+| ROC AUC | 0.691 | **0.696** | 0.615 | 0.666 | 0.662 |
+| Log loss ↓ | 1.039 | **0.986** | 1.088 | 1.063 | 1.512 |
+| Brier score ↓ | 0.627 | **0.590** | 0.652 | 0.638 | 0.722 |
+
+**Why Random Forest was selected:** it leads on 6 of 8 metrics. More importantly for a betting use case, it has the lowest log loss (0.986) and Brier score (0.590), so its probabilities are the best calibrated. Pricing odds depends on trustworthy probabilities, not just on picking the most likely outcome.
+
+**Benchmark context:** a naive "always predict the home team" baseline typically lands around 45% in top European leagues, and a random guess on three outcomes gets 33%. Random Forest's 54% accuracy and 0.70 ROC AUC show real signal, but only a modest lift above that floor.
 
 **Profit simulation (Random Forest vs Bet365, flat stake):** [N] bets placed · ROI [±x.x%] · net result [±x units]
 
 ## 🔍 Most Important Findings
 
-1. **There is a hard ceiling on predictability.** Across all five models, accuracy sits in the 45 to 54% range for a three-way market. The gap between models is small compared with the noise in the sport itself. More complex models do not unlock a hidden signal.
-2. **Draws are the blind spot.** Draws are the hardest class to predict even after SMOTE rebalancing. This matters commercially because draws are typically priced at the most attractive odds, which pulls bettors towards the outcome that models handle worst.
+1. **There is a hard ceiling on predictability.** Across all five models, test accuracy ranges from 45.2% (SVM) to 54.0% (Random Forest), and ROC AUC from 0.62 to 0.70. A simple Logistic Regression (51.5%, AUC 0.691) comes within 2.5 points of the best model, while the more complex XGBoost (48.5%) and SVM do worse. Complexity does not unlock a hidden signal. The noise in the sport itself sets the limit.
+2. **Draws are the blind spot.** Balanced accuracy stays at about 0.50 for every model, even Random Forest at 54% overall accuracy. Models score well on home and away wins but struggle on draws, even after SMOTE rebalancing. This matters commercially because draws are typically priced at the most attractive odds, which pulls bettors towards the outcome that models handle worst.
 3. **Team quality beats short-term form.** SHAP analysis shows that structural strength signals (team ratings, squad market value, strength cluster, home/away quality) carry more weight than recent results. "Hot streaks" are weaker predictors than the betting narrative suggests.
 4. **The bookmaker's margin is the real opponent.** Bookmaker odds are not fair odds: the implied probabilities across Home/Draw/Away sum to more than 100%. That overround means a bettor needs to be right more often than the true probability just to break even, and it erases most of the edge the model finds on individual matches.
 5. **Pricing is not uniform.** Comparing model-implied fair odds with Bet365 prices reveals favourite-longshot bias: longshots tend to be priced less generously relative to their true chance than favourites. Bettors chasing big payouts are systematically paying the most margin.
